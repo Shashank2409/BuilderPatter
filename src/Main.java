@@ -1,5 +1,6 @@
 import product.Vehicle;
 import product.builder.impl.FourWheelerBuilder;
+import product.prototype.VehiclePrototypeClient;
 
 public class Main {
     public static void main(String args[]) {
@@ -12,5 +13,10 @@ public class Main {
         Vehicle bmw = fourWheelerBuilder.build();
 
         bmw.drive();
+
+        VehiclePrototypeClient vehiclePrototypeClient = new VehiclePrototypeClient(bmw);
+        Vehicle anotherBmw = vehiclePrototypeClient.createVehicle();
+        anotherBmw.drive();
+
     }
 }

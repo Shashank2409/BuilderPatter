@@ -11,6 +11,13 @@ public class FourWheeler implements Vehicle {
     private String color;
 
     private FourWheeler() {}
+    private FourWheeler(String name, String brand, int doors, int hp, String color) {
+        this.name = name;
+        this.brand = brand;
+        this.doors = doors;
+        this.hp = hp;
+        this.color = color;
+    }
 
     public FourWheeler(FourWheelerBuilder fourWheelerBuilder) {
         this.name = fourWheelerBuilder.getName();
@@ -19,9 +26,14 @@ public class FourWheeler implements Vehicle {
         this.doors = fourWheelerBuilder.getDoors();
         this.color = fourWheelerBuilder.getColor();
     }
+    @Override
+    public FourWheeler clone() {
+        return new FourWheeler(this.name, this.brand, this.doors, this.hp, this.color);
+    }
 
+    @Override
     public void drive() {
-        System.out.printf("Driving a %s door %s %s %s with %s HP", doors, color, brand, name, hp);
+        System.out.printf("Driving a %s door %s %s %s with %s HP\n", doors, color, brand, name, hp);
     }
 
 }
