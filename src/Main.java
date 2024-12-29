@@ -1,6 +1,9 @@
+import external.AutomaticStart;
 import product.Vehicle;
 import product.builder.impl.FourWheelerBuilder;
 import product.prototype.VehiclePrototypeClient;
+import product.utils.Start;
+import product.utils.impl.BMWStart;
 
 public class Main {
     public static void main(String args[]) {
@@ -18,5 +21,9 @@ public class Main {
         Vehicle anotherBmw = vehiclePrototypeClient.createVehicle();
         anotherBmw.drive();
 
+        AutomaticStart automaticStart = new AutomaticStart();
+        Start bmwStart = new BMWStart(automaticStart);
+
+        bmwStart.start("BMW i5");
     }
 }

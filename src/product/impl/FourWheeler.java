@@ -10,6 +10,10 @@ public class FourWheeler implements Vehicle {
     private int hp;
     private String color;
 
+    public String getName() {
+        return name;
+    }
+
     private FourWheeler() {}
     private FourWheeler(String name, String brand, int doors, int hp, String color) {
         this.name = name;
