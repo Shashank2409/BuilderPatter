@@ -1,6 +1,10 @@
 import external.AutomaticStart;
 import product.Vehicle;
+import product.bridge.RefuelImplementor;
+import product.bridge.impl.DieselRefuelImplementor;
+import product.bridge.impl.PetrolRefuelImplementor;
 import product.builder.impl.FourWheelerBuilder;
+import product.impl.FourWheeler;
 import product.prototype.VehiclePrototypeClient;
 import product.utils.Start;
 import product.utils.impl.BMWStart;
@@ -25,5 +29,14 @@ public class Main {
         Start bmwStart = new BMWStart(automaticStart);
 
         bmwStart.start("BMW i5");
+
+        //Bridge Pattern
+        RefuelImplementor petrolRefuel = new PetrolRefuelImplementor();
+        Vehicle petrolMercedes = new FourWheeler(petrolRefuel);
+        petrolMercedes.refuelVehicle();
+
+        RefuelImplementor dieselRefuel = new DieselRefuelImplementor();
+        Vehicle dieselMercedes = new FourWheeler(dieselRefuel);
+        dieselMercedes.refuelVehicle();
     }
 }
